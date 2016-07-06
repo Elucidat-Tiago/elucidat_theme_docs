@@ -11,17 +11,25 @@ The Mixins tab gets put at the start of the parts file.  When the file is saved 
 
 A basic variable in the colourways consists of a `variable` (which is the corresponding variable name in the SASS without the `$` symbol at the start, a default value for the variable, a type which can be slider, image, font or list, if a type isn't set then the type is a colour picker.
 
+###### A regular Colour Variable
+```
+{
+    "variable": "body-bg",
+    "default": "#F9F9F9"
+},
+```
+
 ###### An Image Variable
-'''
+```
 {
     "variable": "client-logo",
     "default": "url({{media.1149655}})",
     "type": "image"
 },
-'''
+```
 
 ###### A Slider Variable
-'''
+```
 {
     "variable": "base-font-size",
     "default": "16px",
@@ -29,9 +37,9 @@ A basic variable in the colourways consists of a `variable` (which is the corres
     "min": "9px",
     "max": "21px"
 },
-'''
+```
 ###### Font Variables
-'''
+```
 {
     "variable": "display-font",
     "default": "Arial",
@@ -42,4 +50,17 @@ A basic variable in the colourways consists of a `variable` (which is the corres
     "default": "Arial",
     "type": "font"
 },
-'''
+```
+###### A List Variable
+```
+{
+    "variable": "icon-path",
+    "default": "fontawesome",
+    "type": "list",
+    "options": {
+        "Material": "material",
+        "FontAwesome": "fontawesome",
+        "Typicon": "typicon"
+    }
+}
+```
