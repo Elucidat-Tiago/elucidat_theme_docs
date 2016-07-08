@@ -68,6 +68,7 @@ A basic variable in the colourways consists of a `variable` (which is the corres
 ## Important Variables
 
 `$base-unit` is used for padding and margin calculations, default is 16px
+`$text-direction` text direction, either ltr (default) or rtl
 `$body-bg` background colour for the body
 `$text-color` and `$text-color-neutral`
 `$nav-color` `$nav-color-neutral` used for navigation, progress bars and navigation percentage
@@ -152,6 +153,86 @@ $caption: $base-font-size * 0.85;
 
 $base-spacing: bu(1);
 $base-spacing--mobile: $base-spacing * 0.5;
+
+// focus helper
+
+$focus_helper_color: rgba(0,0,0,0.06);
+
+// grid
+
+$grid-margin: 1%;
+
+// tooltip
+$tooltip-width: 200px;
+
+// modal
+$modal_background_color: $text-color-neutral;
+
+
+//mejs
+
+$mejs-control-icon-size: 16px;
+$mejs-control-height: bu(2);
+$mejs-bar-height: bu(0.25);
+$mejs-controls-background: $text-color-neutral;
+$mejs-bar-color: $interaction-color;
+$mejs-button-color: $text-color;
+$mejs-button-hover-color: $interaction-color;
+
+
+// accordion
+$accordion-group-spacing: $base-spacing / 4;
+
+// tabs
+$tab-gutter: 0; // spacing between nav-tabs and tab-pane
+$tab-spacing: 0; // spacing between each tab
+
 ```
 
+## Base Mixins
+
+`base-spacing` margin top and bottom
+`horizontal-padding` padding left/right based on $base-spacing
+`vertical-padding` padding top/bottom
+`clearfix` :before & :after `content=""; display: table; line-height: 0;` and :after `clear: both`
+`prefix($property, $value)` applies all the browser/webkit prefixes to property and assigns value eg `-ms-#{$property}: $value;`
+`transform($transform)` applies transform for all browsers prefixes eg `-webkit-transform: $transform;`
+`transition($transition)` applies transition to all browser prefixes eg `-webkit-transition: $transition;`
+`transition-2($transition1, $transition2)` applies transition to all browser prefixes eg `-webkit-transition: $transition1, $transition2;`
+`main-transition` applies a transition of `all 0.4s ease-in-out 0s` as standard
+`short-transition` applies a transition of `all 0.2s ease-in-out 0s`
+`long-transition` applies a transition of `all 0.6s ease-in-out 0s`
+`no-transition` applies `transition: none`
+`animation($animation)` applies browser prefixes to animation eg `-webkit-animation: $animation;`
+`keyframes($animationName)` applies browser prefixes to keyframes animation eg 
+```
+@-webkit-keyframes #{$animationName} {
+    @content;
+}
+```
+`placeholder-image` applies the $placeholder-image, background size to cover, position 50% 50% and no-repeat
+`linearGradient($top, $bottom)` applies a background to linear gradient with browser prefixes
+`gradient($direction, $g-color-1, $g-color-2)` applies a background gradient
+`content-width` sets `max-width: $content_max_width;` and padding left/right to `$content_margin` etc
+`full-width` sets width to auto and max-width to none, padding left/right to `$content_margin`
+`module-base` module base set up
+`e-hover-parent` forces edit control to show if you hover a child element
+`e-hover-parent-inset`
+`card-base` card base set up
+
+
+# Styling
+
 ## Buttons
+
+#### Sizes
+`e-button--small`, `e-button--large`
+
+#### Floats
+`e-float--start`, `e-float--end`, `e-float--center`
+
+## Menus
+
+`.project__menu`
+`.project__menu.open`
+`.project__menu .menu__wrap`
